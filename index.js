@@ -12,5 +12,17 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  let finalArray = []
+  let oldArray = tutorials;
+  for (let i = 0; i < tutorials.length; i++) {
+    let splitWords = oldArray[i].split(' ');
+    let splitCapitalWords = splitWords.map(letterGrabberCapper);
+    let jointCapitalWords = splitCapitalWords.join(' ');
+    finalArray.push(jointCapitalWords)
+  }
+  return finalArray
+
+  function letterGrabberCapper (element) {
+    return `${element.charAt(0).toUpperCase()}` + `${element.slice(1)}`
+  }
 }
